@@ -111,7 +111,7 @@ class MarkdownPreviewPlugin(GObject.Object, Gedit.WindowActivatable):
 		
 		if markdownVisibility == "1":
 			self.addMarkdownPreviewTab()
-		
+
 		self.addMenuItems()
 	
 	def do_deactivate(self):
@@ -132,14 +132,13 @@ class MarkdownPreviewPlugin(GObject.Object, Gedit.WindowActivatable):
 			panel = self.window.get_side_panel()
 		else:
 			panel = self.window.get_bottom_panel()
-		
+
 		image = Gtk.Image()
 		image.set_from_icon_name("gnome-mime-text-html", Gtk.IconSize.MENU)
 		
-		panel.add_item(self.scrolledWindow, "MarkdownPreview", _("Markdown Preview"), image)
+		panel.add_titled(self.scrolledWindow, "MarkdownPreview", _("Markdown Preview") )
 		panel.show()
-		panel.activate_item(self.scrolledWindow)
-	
+
 	def addMenuItems(self):
 		manager = self.window.get_ui_manager()
 		
